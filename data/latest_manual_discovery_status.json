@@ -1,0 +1,16 @@
+{
+  "snapshot_kst": "2026-09-26T19:29:30+09:00",
+  "mode": "manual",
+  "market_date": "20260923",
+  "registered_universe_count": 63,
+  "market_rank_candidate_count": 30,
+  "pending_review_count": 27,
+  "discovery_errors": [],
+  "method": [
+    "KRX volume increase rank",
+    "KRX turnover rank",
+    "KRX trading value rank",
+    "KRX trading-value turnover rank"
+  ],
+  "important_limit": "This is market-wide anomaly discovery from KIS ranking endpoints, not an exhaustive classification of every KRX company. Unknown names are never auto-scored as semiconductor stocks; they go to the review queue for business/profitability classification."
+}
