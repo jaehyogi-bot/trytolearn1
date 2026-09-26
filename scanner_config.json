@@ -1,0 +1,18 @@
+{
+  "min_market_cap_won": 300000000000,
+  "discovery_sort_codes": {
+    "volume_increase": "1",
+    "turnover": "2",
+    "trading_value": "3",
+    "trading_value_turnover": "4"
+  },
+  "unknown_candidate_policy": "review_before_model_scoring",
+  "required_groups": [
+    "전공정 장비",
+    "후공정·패키징",
+    "테스트·검사·인터페이스",
+    "공정부품·소모품",
+    "소재·케미컬",
+    "기판·PCB"
+  ]
+}
