@@ -1,0 +1,80 @@
+name: KIS Semiconductor Scan
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Snapshot mode
+        required: true
+        default: manual
+        type: choice
+        options:
+          - manual
+          - "1540"
+          - close
+  schedule:
+    # GitHub Actions cron is UTC. Korea = UTC+9.
+    # 15:40 KST
+    - cron: "40 6 * * 1-5"
+    # 16:05 KST
+    - cron: "5 7 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kis-semiconductor-scan
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+      KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Choose scan mode
+        id: mode
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MODE="${{ inputs.mode }}"
+          elif [ "${{ github.event.schedule }}" = "40 6 * * 1-5" ]; then
+            MODE="1540"
+          else
+            MODE="close"
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+          echo "KIS scan mode: $MODE"
+
+      - name: Collect KIS data
+        run: python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
+
+      - name: Commit collected data
+        shell: bash
+        run: |
+          if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then
+            echo "No new market data to commit."
+            exit 0
+          fi
+          git config user.name "kis-scan-bot"
+          git config user.email "kis-scan-bot@users.noreply.github.com"
+          git add data/
+          git commit -m "KIS ${{ steps.mode.outputs.mode }} snapshot $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          git push
