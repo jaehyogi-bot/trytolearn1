@@ -1,0 +1,120 @@
+name: KIS Scan Watchdog
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Recovery mode
+        required: true
+        default: close
+        type: choice
+        options:
+          - "1540"
+          - close
+  schedule:
+    # Independent backstop workflow so a missed main schedule is not a single point of failure.
+    # 15:58 KST
+    - cron: "58 6 * * 1-5"
+    # 17:20 KST
+    - cron: "20 8 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kis-semiconductor-scan
+  cancel-in-progress: false
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+      KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Choose recovery mode
+        id: mode
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            MODE="${{ inputs.mode }}"
+          elif [ "${{ github.event.schedule }}" = "58 6 * * 1-5" ]; then
+            MODE="1540"
+          else
+            MODE="close"
+          fi
+          echo "mode=$MODE" >> "$GITHUB_OUTPUT"
+
+      - name: Check whether recovery is needed
+        id: check
+        shell: bash
+        run: |
+          set +e
+          python scan_guard.py --mode "${{ steps.mode.outputs.mode }}" --require core
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "recover=false" >> "$GITHUB_OUTPUT"; else echo "recover=true" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: Market-day preflight
+        id: market
+        if: steps.check.outputs.recover == 'true'
+        shell: bash
+        run: |
+          set +e
+          timeout 90s python market_day_check.py --mode "${{ steps.mode.outputs.mode }}"
+          RC=$?
+          if [ "$RC" -eq 10 ]; then STATE="closed"; elif [ "$RC" -eq 0 ]; then STATE="open"; else STATE="unknown"; fi
+          echo "state=$STATE" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Recover with KIS
+        id: primary
+        if: steps.check.outputs.recover == 'true' && steps.market.outputs.state != 'closed'
+        continue-on-error: true
+        run: timeout 12m python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
+
+      - name: Check recovered KIS core
+        id: core
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          python scan_guard.py --mode "${{ steps.mode.outputs.mode }}" --require core
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: Public-web fallback
+        if: always() && steps.check.outputs.recover == 'true' && steps.market.outputs.state != 'closed' && steps.core.outputs.ok != 'true'
+        continue-on-error: true
+        run: timeout 4m python fallback_collect.py --mode "${{ steps.mode.outputs.mode }}"
+
+      - name: Commit watchdog recovery data
+        if: always()
+        shell: bash
+        run: |
+          if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then exit 0; fi
+          git config user.name "kis-watchdog-bot"
+          git config user.email "kis-watchdog-bot@users.noreply.github.com"
+          git add data/
+          git commit -m "KIS watchdog ${{ steps.mode.outputs.mode }} $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          git push
+
+      - name: Watchdog final gate
+        if: always()
+        shell: bash
+        run: |
+          MODE="${{ steps.mode.outputs.mode }}"
+          if [ "${{ steps.market.outputs.state }}" = "closed" ]; then exit 0; fi
+          python scan_guard.py --mode "$MODE" --require core && exit 0
+          python scan_guard.py --mode "$MODE" --require fallback
