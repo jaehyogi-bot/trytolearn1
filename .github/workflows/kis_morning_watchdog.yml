@@ -1,0 +1,91 @@
+name: KIS Morning Watchdog
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Independent recovery checkpoints (UTC -> KST +9)
+    # 10:12 KST: recover missed 10:00 run
+    - cron: "12 1 * * 1-5"
+    # 10:42 KST: recover missed 10:30 run
+    - cron: "42 1 * * 1-5"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: kis-semiconductor-scan
+  cancel-in-progress: false
+
+jobs:
+  watchdog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+      KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Check recent morning freshness
+        id: fresh
+        shell: bash
+        run: |
+          set +e
+          python morning_freshness.py --max-age-min 15
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "recover=false" >> "$GITHUB_OUTPUT"; else echo "recover=true" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: Recover with KIS
+        id: primary
+        if: steps.fresh.outputs.recover == 'true'
+        continue-on-error: true
+        run: timeout 12m python kis_collect.py --mode manual
+
+      - name: Refresh anomaly discovery
+        if: steps.fresh.outputs.recover == 'true' && steps.primary.outcome == 'success'
+        continue-on-error: true
+        run: timeout 4m python market_discovery.py --mode manual
+
+      - name: Check recovered KIS core
+        id: core
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          python scan_guard.py --mode manual --require core
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: Public-web fallback
+        if: always() && steps.fresh.outputs.recover == 'true' && steps.core.outputs.ok != 'true'
+        continue-on-error: true
+        run: timeout 4m python fallback_collect.py --mode manual
+
+      - name: Commit watchdog recovery
+        if: always()
+        shell: bash
+        run: |
+          if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then exit 0; fi
+          git config user.name "kis-morning-watchdog"
+          git config user.email "kis-morning-watchdog@users.noreply.github.com"
+          git add data/
+          git commit -m "KIS morning recovery $(TZ=Asia/Seoul date +%Y-%m-%dT%H:%M)"
+          git pull --rebase origin main
+          git push
+
+      - name: Watchdog final gate
+        if: always()
+        shell: bash
+        run: |
+          python scan_guard.py --mode manual --require core && exit 0
+          python scan_guard.py --mode manual --require fallback
