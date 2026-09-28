@@ -48,6 +48,14 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      - name: Restore encrypted KIS token cache
+        uses: actions/cache@v4
+        with:
+          path: .runtime/kis_token_cache.enc
+          key: kis-token-v1-${{ github.run_id }}
+          restore-keys: |
+            kis-token-v1-
+
       - name: Install dependencies
         run: pip install -r requirements.txt
 
@@ -150,7 +158,7 @@ jobs:
         shell: bash
         run: |
           if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then
-            echo "No new market data or token cache to commit."
+            echo "No new market data to commit."
             exit 0
           fi
           git config user.name "kis-scan-bot"
