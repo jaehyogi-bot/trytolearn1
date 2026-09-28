@@ -39,7 +39,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 90s python market_day_check.py --mode manual
+          timeout 90s python kis_runner.py market-day-check --mode manual
           RC=$?
           if [ "$RC" -eq 0 ]; then STATE="open"; elif [ "$RC" -eq 10 ]; then STATE="closed"; else STATE="unknown"; fi
           echo "state=$STATE" >> "$GITHUB_OUTPUT"
@@ -60,12 +60,12 @@ jobs:
         id: primary
         if: steps.market.outputs.state != 'closed' && steps.fresh.outputs.recover == 'true'
         continue-on-error: true
-        run: timeout 12m python kis_collect.py --mode manual
+        run: timeout 12m python kis_runner.py collect --mode manual
 
       - name: Refresh anomaly discovery
         if: steps.market.outputs.state != 'closed' && steps.fresh.outputs.recover == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
-        run: timeout 4m python market_discovery.py --mode manual
+        run: timeout 4m python kis_runner.py discovery --mode manual
 
       - name: Check recovered KIS core
         id: core
@@ -94,7 +94,7 @@ jobs:
           git add data/
           git commit -m "KIS morning recovery $(TZ=Asia/Seoul date +%Y-%m-%dT%H:%M)"
           git pull --rebase origin main
-          git push
+          git push origin main
 
       - name: Watchdog final gate
         if: always()
