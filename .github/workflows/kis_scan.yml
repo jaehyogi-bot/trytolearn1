@@ -31,7 +31,7 @@ concurrency:
 jobs:
   collect:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 25
     env:
       KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
       KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
@@ -70,14 +70,13 @@ jobs:
         shell: bash
         run: |
           set +e
-          python market_day_check.py --mode "${{ steps.mode.outputs.mode }}"
+          timeout 90s python market_day_check.py --mode "${{ steps.mode.outputs.mode }}"
           RC=$?
           if [ "$RC" -eq 0 ]; then
             STATE="open"
           elif [ "$RC" -eq 10 ]; then
             STATE="closed"
           else
-            # Do not let a KIS preflight outage block the public-web fallback path.
             STATE="unknown"
           fi
           echo "state=$STATE" >> "$GITHUB_OUTPUT"
@@ -93,7 +92,6 @@ jobs:
             echo "Freshness: market closed; no snapshot required."
             exit 0
           fi
-
           set +e
           python scan_guard.py --mode "${{ steps.mode.outputs.mode }}" --require full
           RC=$?
@@ -110,12 +108,12 @@ jobs:
         id: primary
         if: steps.freshness.outputs.needs_run == 'true'
         continue-on-error: true
-        run: python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 12m python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Discover market-wide anomaly candidates
         if: steps.freshness.outputs.needs_run == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
-        run: python market_discovery.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 4m python market_discovery.py --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Compare 15:40 with close
         if: steps.freshness.outputs.needs_run == 'true' && steps.mode.outputs.mode == 'close' && steps.primary.outcome == 'success'
@@ -131,7 +129,6 @@ jobs:
             echo "core_ok=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-
           set +e
           python scan_guard.py --mode "${{ steps.mode.outputs.mode }}" --require core
           RC=$?
@@ -146,7 +143,7 @@ jobs:
         id: fallback
         if: always() && steps.market.outputs.state != 'closed' && steps.postprimary.outputs.core_ok != 'true'
         continue-on-error: true
-        run: python fallback_collect.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 4m python fallback_collect.py --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Commit collected data and health files
         if: always()
@@ -168,30 +165,24 @@ jobs:
         run: |
           MODE="${{ steps.mode.outputs.mode }}"
           MARKET="${{ steps.market.outputs.state }}"
-
           echo "## KIS scan health" >> "$GITHUB_STEP_SUMMARY"
           echo "- mode: $MODE" >> "$GITHUB_STEP_SUMMARY"
           echo "- market preflight: $MARKET" >> "$GITHUB_STEP_SUMMARY"
-
           if [ "$MARKET" = "closed" ]; then
             echo "- result: market closed; no snapshot expected" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-
           if python scan_guard.py --mode "$MODE" --require full; then
             echo "- result: HEALTHY (fresh full KIS snapshot)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-
           if python scan_guard.py --mode "$MODE" --require core; then
             echo "- result: DEGRADED (fresh KIS core data, some auxiliary fields missing)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-
           if python scan_guard.py --mode "$MODE" --require fallback; then
             echo "- result: FALLBACK (KIS unusable, fresh public-web core data saved)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-
           echo "- result: FAILURE (neither fresh KIS core nor complete fallback data)" >> "$GITHUB_STEP_SUMMARY"
           exit 1
