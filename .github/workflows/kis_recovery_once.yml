@@ -12,7 +12,7 @@ permissions:
 jobs:
   recover:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 20
     env:
       KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
       KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
@@ -40,12 +40,12 @@ jobs:
         id: primary
         if: steps.fresh.outputs.run == 'true'
         continue-on-error: true
-        run: python kis_collect.py --mode close
+        run: timeout 12m python kis_collect.py --mode close
 
       - name: Market discovery
         if: steps.fresh.outputs.run == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
-        run: python market_discovery.py --mode close
+        run: timeout 4m python market_discovery.py --mode close
 
       - name: Check KIS core
         id: core
@@ -61,7 +61,7 @@ jobs:
       - name: Fallback if needed
         if: always() && steps.core.outputs.ok != 'true'
         continue-on-error: true
-        run: python fallback_collect.py --mode close
+        run: timeout 4m python fallback_collect.py --mode close
 
       - name: Commit recovered data
         if: always()
@@ -72,7 +72,8 @@ jobs:
           git config user.email "kis-scan-bot@users.noreply.github.com"
           git add data/
           git commit -m "KIS close recovery $(TZ=Asia/Seoul date +%Y-%m-%d)"
-          git push
+          git pull --rebase origin main
+          git push origin main
 
       - name: Final gate
         if: always()
