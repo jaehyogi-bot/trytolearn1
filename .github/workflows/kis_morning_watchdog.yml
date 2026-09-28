@@ -34,8 +34,20 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
 
+      - name: Market-day preflight
+        id: market
+        shell: bash
+        run: |
+          set +e
+          timeout 90s python market_day_check.py --mode manual
+          RC=$?
+          if [ "$RC" -eq 0 ]; then STATE="open"; elif [ "$RC" -eq 10 ]; then STATE="closed"; else STATE="unknown"; fi
+          echo "state=$STATE" >> "$GITHUB_OUTPUT"
+          exit 0
+
       - name: Check recent morning freshness
         id: fresh
+        if: steps.market.outputs.state != 'closed'
         shell: bash
         run: |
           set +e
@@ -46,12 +58,12 @@ jobs:
 
       - name: Recover with KIS
         id: primary
-        if: steps.fresh.outputs.recover == 'true'
+        if: steps.market.outputs.state != 'closed' && steps.fresh.outputs.recover == 'true'
         continue-on-error: true
         run: timeout 12m python kis_collect.py --mode manual
 
       - name: Refresh anomaly discovery
-        if: steps.fresh.outputs.recover == 'true' && steps.primary.outcome == 'success'
+        if: steps.market.outputs.state != 'closed' && steps.fresh.outputs.recover == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
         run: timeout 4m python market_discovery.py --mode manual
 
@@ -60,6 +72,7 @@ jobs:
         if: always()
         shell: bash
         run: |
+          if [ "${{ steps.market.outputs.state }}" = "closed" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; exit 0; fi
           set +e
           python scan_guard.py --mode manual --require core
           RC=$?
@@ -67,7 +80,7 @@ jobs:
           exit 0
 
       - name: Public-web fallback
-        if: always() && steps.fresh.outputs.recover == 'true' && steps.core.outputs.ok != 'true'
+        if: always() && steps.market.outputs.state != 'closed' && steps.fresh.outputs.recover == 'true' && steps.core.outputs.ok != 'true'
         continue-on-error: true
         run: timeout 4m python fallback_collect.py --mode manual
 
@@ -87,5 +100,6 @@ jobs:
         if: always()
         shell: bash
         run: |
+          if [ "${{ steps.market.outputs.state }}" = "closed" ]; then exit 0; fi
           python scan_guard.py --mode manual --require core && exit 0
           python scan_guard.py --mode manual --require fallback
