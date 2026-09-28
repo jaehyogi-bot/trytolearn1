@@ -70,7 +70,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 90s python market_day_check.py --mode "${{ steps.mode.outputs.mode }}"
+          timeout 90s python kis_runner.py market-day-check --mode "${{ steps.mode.outputs.mode }}"
           RC=$?
           if [ "$RC" -eq 0 ]; then
             STATE="open"
@@ -108,12 +108,12 @@ jobs:
         id: primary
         if: steps.freshness.outputs.needs_run == 'true'
         continue-on-error: true
-        run: timeout 12m python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 12m python kis_runner.py collect --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Discover market-wide anomaly candidates
         if: steps.freshness.outputs.needs_run == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
-        run: timeout 4m python market_discovery.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 4m python kis_runner.py discovery --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Compare 15:40 with close
         if: steps.freshness.outputs.needs_run == 'true' && steps.mode.outputs.mode == 'close' && steps.primary.outcome == 'success'
@@ -150,7 +150,7 @@ jobs:
         shell: bash
         run: |
           if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then
-            echo "No new market data to commit."
+            echo "No new market data or token cache to commit."
             exit 0
           fi
           git config user.name "kis-scan-bot"
