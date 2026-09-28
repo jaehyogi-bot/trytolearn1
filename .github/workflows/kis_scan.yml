@@ -157,7 +157,8 @@ jobs:
           git config user.email "kis-scan-bot@users.noreply.github.com"
           git add data/
           git commit -m "KIS ${{ steps.mode.outputs.mode }} snapshot $(TZ=Asia/Seoul date +%Y-%m-%d)"
-          git push
+          git pull --rebase origin main
+          git push origin main
 
       - name: Final health gate
         if: always()
