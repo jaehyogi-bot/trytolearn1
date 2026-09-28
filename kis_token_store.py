@@ -10,7 +10,7 @@ from typing import Any
 
 from cryptography.fernet import Fernet, InvalidToken
 
-DEFAULT_CACHE_PATH = Path("data/.kis_token_cache.enc")
+DEFAULT_CACHE_PATH = Path(".runtime/kis_token_cache.enc")
 CACHE_VERSION = 1
 
 
@@ -19,8 +19,8 @@ def _cache_path() -> Path:
 
 
 def _fernet(app_secret: str) -> Fernet:
-    # KIS app secret is high entropy. Derive a separate key so the app secret itself
-    # is never written to disk or the repository.
+    # KIS app secret is high entropy. Derive a separate encryption key so neither
+    # the app secret nor the plaintext access token is written to disk/cache.
     digest = hashlib.sha256(f"kis-token-cache-v1:{app_secret}".encode("utf-8")).digest()
     return Fernet(base64.urlsafe_b64encode(digest))
 
