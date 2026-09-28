@@ -38,7 +38,6 @@ def _parse_expiry(body: dict[str, Any], issued_at: datetime) -> datetime:
 
 def _install_cached_auth() -> None:
     def cached_auth(self: kis_collect.KisClient) -> None:
-        # Normal startup: reuse the encrypted cache if it is still valid.
         if not self.token:
             cached = load_token(self.app_secret)
             if cached:
@@ -46,9 +45,6 @@ def _install_cached_auth() -> None:
                 print(f"KIS_AUTH=CACHE expires_at={cached.get('expires_at', '')}")
                 return
 
-        # If auth() is called while a token is already set, KisClient.get() saw a 401.
-        # Permit at most one real issuance in a process so a bad response cannot cause
-        # repeated token issuance loops.
         if getattr(self, "_kis_token_issued_this_process", False):
             raise RuntimeError("KIS token was already issued once in this process; refusing repeated issuance")
 
@@ -80,7 +76,7 @@ def _install_cached_auth() -> None:
 
 def main() -> int:
     if len(sys.argv) < 2:
-        print("Usage: python kis_runner.py {collect|market-day-check|discovery} [args...]", file=sys.stderr)
+        print("Usage: python kis_runner.py {collect|market-day-check|discovery|normalize-close} [args...]", file=sys.stderr)
         return 2
 
     command = sys.argv[1]
@@ -89,6 +85,7 @@ def main() -> int:
         "collect": "kis_collect",
         "market-day-check": "market_day_check",
         "discovery": "market_discovery",
+        "normalize-close": "normalize_close",
     }
     module_name = targets.get(command)
     if not module_name:
