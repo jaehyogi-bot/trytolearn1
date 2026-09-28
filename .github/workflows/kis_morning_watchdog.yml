@@ -32,6 +32,13 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+      - name: Restore encrypted KIS token cache
+        uses: actions/cache@v4
+        with:
+          path: .runtime/kis_token_cache.enc
+          key: kis-token-v1-${{ github.run_id }}
+          restore-keys: |
+            kis-token-v1-
       - run: pip install -r requirements.txt
 
       - name: Market-day preflight
