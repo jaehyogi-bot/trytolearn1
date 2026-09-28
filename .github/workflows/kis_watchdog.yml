@@ -90,6 +90,12 @@ jobs:
         continue-on-error: true
         run: timeout 12m python kis_runner.py collect --mode "${{ steps.mode.outputs.mode }}"
 
+      - name: Normalize KRX regular close
+        id: normalize
+        if: steps.check.outputs.recover == 'true' && steps.mode.outputs.mode == 'close' && steps.market.outputs.state != 'closed' && steps.primary.outcome == 'success'
+        continue-on-error: true
+        run: timeout 6m python kis_runner.py normalize-close
+
       - name: Check recovered KIS core
         id: core
         if: always()
