@@ -1,0 +1,82 @@
+name: KIS Close Recovery Once
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/kis_recovery_once.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  recover:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+      KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+
+      - name: Check freshness
+        id: fresh
+        shell: bash
+        run: |
+          set +e
+          python scan_guard.py --mode close --require full
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "run=false" >> "$GITHUB_OUTPUT"; else echo "run=true" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: KIS close recovery
+        id: primary
+        if: steps.fresh.outputs.run == 'true'
+        continue-on-error: true
+        run: python kis_collect.py --mode close
+
+      - name: Market discovery
+        if: steps.fresh.outputs.run == 'true' && steps.primary.outcome == 'success'
+        continue-on-error: true
+        run: python market_discovery.py --mode close
+
+      - name: Check KIS core
+        id: core
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          python scan_guard.py --mode close --require core
+          RC=$?
+          if [ "$RC" -eq 0 ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "ok=false" >> "$GITHUB_OUTPUT"; fi
+          exit 0
+
+      - name: Fallback if needed
+        if: always() && steps.core.outputs.ok != 'true'
+        continue-on-error: true
+        run: python fallback_collect.py --mode close
+
+      - name: Commit recovered data
+        if: always()
+        shell: bash
+        run: |
+          if git diff --quiet -- data/ 2>/dev/null && [ -z "$(git status --porcelain data/ 2>/dev/null)" ]; then exit 0; fi
+          git config user.name "kis-scan-bot"
+          git config user.email "kis-scan-bot@users.noreply.github.com"
+          git add data/
+          git commit -m "KIS close recovery $(TZ=Asia/Seoul date +%Y-%m-%d)"
+          git push
+
+      - name: Final gate
+        if: always()
+        shell: bash
+        run: |
+          python scan_guard.py --mode close --require core && exit 0
+          python scan_guard.py --mode close --require fallback
