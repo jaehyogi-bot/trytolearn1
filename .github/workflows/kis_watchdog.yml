@@ -71,7 +71,7 @@ jobs:
         shell: bash
         run: |
           set +e
-          timeout 90s python market_day_check.py --mode "${{ steps.mode.outputs.mode }}"
+          timeout 90s python kis_runner.py market-day-check --mode "${{ steps.mode.outputs.mode }}"
           RC=$?
           if [ "$RC" -eq 10 ]; then STATE="closed"; elif [ "$RC" -eq 0 ]; then STATE="open"; else STATE="unknown"; fi
           echo "state=$STATE" >> "$GITHUB_OUTPUT"
@@ -81,7 +81,7 @@ jobs:
         id: primary
         if: steps.check.outputs.recover == 'true' && steps.market.outputs.state != 'closed'
         continue-on-error: true
-        run: timeout 12m python kis_collect.py --mode "${{ steps.mode.outputs.mode }}"
+        run: timeout 12m python kis_runner.py collect --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Check recovered KIS core
         id: core
