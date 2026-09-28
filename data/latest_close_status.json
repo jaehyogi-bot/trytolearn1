@@ -1,5 +1,5 @@
 {
-  "snapshot_kst": "2026-09-28T21:06:08+09:00",
+  "snapshot_kst": "2026-09-28T23:02:31+09:00",
   "mode": "close",
   "market_date": "20260928",
   "universe_count": 63,
@@ -11,5 +11,9 @@
   "core_coverage_ok": true,
   "full_field_coverage_ok": true,
   "coverage_ok": true,
-  "coverage_rule": "전체 스캔 완료 표현은 full_field_coverage_ok=true일 때만 사용"
+  "coverage_rule": "전체 스캔 완료 표현은 full_field_coverage_ok=true일 때만 사용",
+  "price_basis": "KRX_regular_close_daily",
+  "normalized_count": 63,
+  "normalized_failure_count": 0,
+  "normalized_at_kst": "2026-09-28T23:02:31+09:00"
 }
