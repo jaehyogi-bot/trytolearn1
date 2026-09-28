@@ -118,13 +118,19 @@ jobs:
         continue-on-error: true
         run: timeout 12m python kis_runner.py collect --mode "${{ steps.mode.outputs.mode }}"
 
+      - name: Normalize KRX regular close
+        id: normalize
+        if: steps.freshness.outputs.needs_run == 'true' && steps.mode.outputs.mode == 'close' && steps.primary.outcome == 'success'
+        continue-on-error: true
+        run: timeout 6m python kis_runner.py normalize-close
+
       - name: Discover market-wide anomaly candidates
         if: steps.freshness.outputs.needs_run == 'true' && steps.primary.outcome == 'success'
         continue-on-error: true
         run: timeout 4m python kis_runner.py discovery --mode "${{ steps.mode.outputs.mode }}"
 
       - name: Compare 15:40 with close
-        if: steps.freshness.outputs.needs_run == 'true' && steps.mode.outputs.mode == 'close' && steps.primary.outcome == 'success'
+        if: steps.freshness.outputs.needs_run == 'true' && steps.mode.outputs.mode == 'close' && steps.primary.outcome == 'success' && steps.normalize.outcome == 'success'
         continue-on-error: true
         run: python compare_snapshots.py
 
