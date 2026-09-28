@@ -1,6 +1,10 @@
 name: KIS Semiconductor Scan
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/kis_scan.yml"
   workflow_dispatch:
     inputs:
       mode:
