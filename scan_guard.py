@@ -7,6 +7,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 KST = ZoneInfo("Asia/Seoul")
+CLOSE_PRICE_BASIS = "KRX_regular_close_daily"
 
 
 def load_json(path: Path) -> dict:
@@ -31,6 +32,9 @@ def primary_status(mode: str) -> tuple[bool, str, dict]:
 
     if market_date != today:
         return False, f"stale primary data: market_date={market_date or 'missing'}, today={today}", status
+
+    if mode == "close" and str(status.get("price_basis", "")) != CLOSE_PRICE_BASIS:
+        return False, "close snapshot is not normalized to KRX regular-session close", status
 
     if not bool(status.get("core_coverage_ok")):
         return False, "primary core coverage incomplete", status
