@@ -1,0 +1,13 @@
+{
+  "snapshot_kst": "2026-09-29T14:50:57+09:00",
+  "mode": "manual",
+  "market_date": "20260929",
+  "source": "naver_mobile_fallback",
+  "universe_count": 63,
+  "success_count": 63,
+  "failure_count": 0,
+  "failures": [],
+  "coverage_ok": true,
+  "degraded": true,
+  "note": "Fallback contains only core public-web fields, not KIS investor/short/loan auxiliary fields."
+}
