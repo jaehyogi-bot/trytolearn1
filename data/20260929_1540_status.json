@@ -1,0 +1,15 @@
+{
+  "snapshot_kst": "2026-09-29T22:25:53+09:00",
+  "mode": "1540",
+  "market_date": "20260929",
+  "universe_count": 63,
+  "success_count": 63,
+  "core_failure_count": 0,
+  "aux_failure_count": 0,
+  "core_failures": [],
+  "aux_failures": [],
+  "core_coverage_ok": true,
+  "full_field_coverage_ok": true,
+  "coverage_ok": true,
+  "coverage_rule": "전체 스캔 완료 표현은 full_field_coverage_ok=true일 때만 사용"
+}
