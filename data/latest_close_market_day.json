@@ -1,7 +1,7 @@
 {
-  "snapshot_kst": "2026-10-07T00:15:09+09:00",
+  "snapshot_kst": "2026-10-07T23:26:56+09:00",
   "mode": "close",
   "today": "20261007",
-  "latest_market_date": "20261006",
-  "state": "closed"
+  "latest_market_date": "20261007",
+  "state": "open"
 }
