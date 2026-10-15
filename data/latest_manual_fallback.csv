@@ -1,64 +1,64 @@
 ﻿snapshot_kst,mode,market_date,name,code,group,source,price,change_pct,volume,turnover_value_raw,market_cap_est_won,fallback_note
-2026-10-14T15:09:58+09:00,manual,20261014,원익IPS,240810,전공정 장비,naver_mobile_fallback,121200.0,-7.06,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,주성엔지니어링,036930,전공정 장비,naver_mobile_fallback,239000.0,-8.78,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,유진테크,084370,전공정 장비,naver_mobile_fallback,148100.0,-7.73,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,테스,095610,전공정 장비,naver_mobile_fallback,148200.0,-8.24,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,피에스케이,319660,전공정 장비,naver_mobile_fallback,138900.0,-6.84,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,HPSP,403870,전공정 장비,naver_mobile_fallback,56800.0,-7.79,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,케이씨텍,281820,전공정 장비,naver_mobile_fallback,112200.0,-4.51,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,GST,083450,전공정 장비,naver_mobile_fallback,50400.0,-7.01,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,엘오티베큠,083310,전공정 장비,naver_mobile_fallback,11220.0,-13.56,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,에스티아이,039440,전공정 장비,naver_mobile_fallback,28600.0,4.57,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,넥스틴,348210,테스트·검사·인터페이스,naver_mobile_fallback,34300.0,-6.28,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,한미반도체,042700,후공정·패키징,naver_mobile_fallback,216500.0,-5.46,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,피에스케이홀딩스,031980,후공정·패키징,naver_mobile_fallback,206500.0,-4.4,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,이오테크닉스,039030,후공정·패키징,naver_mobile_fallback,469500.0,-4.96,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,테크윙,089030,후공정·패키징,naver_mobile_fallback,49650.0,-8.23,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,엑시콘,092870,테스트·검사·인터페이스,naver_mobile_fallback,49550.0,-14.57,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,하나마이크론,067310,후공정·패키징,naver_mobile_fallback,44700.0,-9.42,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,두산테스나,131970,후공정·패키징,naver_mobile_fallback,125800.0,-5.41,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,SFA반도체,036540,후공정·패키징,naver_mobile_fallback,10360.0,-8.48,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,네패스,033640,후공정·패키징,naver_mobile_fallback,27950.0,-6.83,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,ISC,095340,테스트·검사·인터페이스,naver_mobile_fallback,173100.0,-5.77,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,리노공업,058470,테스트·검사·인터페이스,naver_mobile_fallback,76300.0,-4.15,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,티에스이,131290,테스트·검사·인터페이스,naver_mobile_fallback,316500.0,-3.95,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,기가비스,420770,테스트·검사·인터페이스,naver_mobile_fallback,128000.0,-2.66,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,인텍플러스,064290,테스트·검사·인터페이스,naver_mobile_fallback,57700.0,-6.48,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,오킨스전자,080580,테스트·검사·인터페이스,naver_mobile_fallback,27250.0,-7.78,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,마이크로컨텍솔,098120,테스트·검사·인터페이스,naver_mobile_fallback,50600.0,-5.42,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,티씨케이,064760,공정부품·소모품,naver_mobile_fallback,257500.0,-6.19,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,원익QnC,074600,공정부품·소모품,naver_mobile_fallback,30550.0,-5.12,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,하나머티리얼즈,166090,공정부품·소모품,naver_mobile_fallback,59800.0,-7.29,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,코미코,183300,공정부품·소모품,naver_mobile_fallback,28700.0,-7.57,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,월덱스,101160,공정부품·소모품,naver_mobile_fallback,28350.0,-5.66,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,한솔아이원스,114810,공정부품·소모품,naver_mobile_fallback,13890.0,-4.93,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,비씨엔씨,146320,공정부품·소모품,naver_mobile_fallback,10640.0,-7.48,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,솔브레인,357780,소재·케미컬,naver_mobile_fallback,375000.0,-5.66,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,동진쎄미켐,005290,소재·케미컬,naver_mobile_fallback,45700.0,-5.77,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,이엔에프테크놀로지,102710,소재·케미컬,naver_mobile_fallback,47300.0,-4.64,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,원익머트리얼즈,104830,소재·케미컬,naver_mobile_fallback,39400.0,-3.55,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,한솔케미칼,014680,소재·케미컬,naver_mobile_fallback,246000.0,-5.93,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,디엔에프,092070,소재·케미컬,naver_mobile_fallback,14710.0,-0.88,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,레이크머티리얼즈,281740,소재·케미컬,naver_mobile_fallback,12960.0,6.14,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,심텍,222800,기판·PCB,naver_mobile_fallback,140300.0,-6.78,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,대덕전자,353200,기판·PCB,naver_mobile_fallback,144000.0,-1.97,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,이수페타시스,007660,기판·PCB,naver_mobile_fallback,110900.0,-5.38,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,티엘비,356860,기판·PCB,naver_mobile_fallback,45950.0,-8.83,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,코리아써키트,007810,기판·PCB,naver_mobile_fallback,75300.0,-6.23,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,해성디에스,195870,기판·PCB,naver_mobile_fallback,57000.0,-6.86,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,와이씨,232140,테스트·검사·인터페이스,naver_mobile_fallback,16050.0,-6.69,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,디아이,003160,테스트·검사·인터페이스,naver_mobile_fallback,40600.0,-4.81,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,에이팩트,200470,후공정·패키징,naver_mobile_fallback,9960.0,-5.41,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,네패스아크,330860,후공정·패키징,naver_mobile_fallback,28650.0,-10.47,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,LB세미콘,061970,후공정·패키징,naver_mobile_fallback,3900.0,-5.91,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,티에프이,425420,테스트·검사·인터페이스,naver_mobile_fallback,59600.0,-4.49,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,프로텍,053610,후공정·패키징,naver_mobile_fallback,74100.0,-6.32,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,유니셈,036200,전공정 장비,naver_mobile_fallback,9460.0,-11.84,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,에프에스티,036810,공정부품·소모품,naver_mobile_fallback,30550.0,-4.38,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,와이씨켐,112290,소재·케미컬,naver_mobile_fallback,10870.0,-4.65,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,샘씨엔에스,252990,테스트·검사·인터페이스,naver_mobile_fallback,16380.0,-7.2,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,제우스,079370,전공정 장비,naver_mobile_fallback,12040.0,-7.24,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,케이엔제이,272110,공정부품·소모품,naver_mobile_fallback,29350.0,-7.12,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,티이엠씨,425040,소재·케미컬,naver_mobile_fallback,14880.0,1.29,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,덕산테코피아,317330,소재·케미컬,naver_mobile_fallback,12320.0,3.53,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
-2026-10-14T15:09:58+09:00,manual,20261014,파크시스템스,140860,테스트·검사·인터페이스,naver_mobile_fallback,272000.0,-9.33,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,원익IPS,240810,전공정 장비,naver_mobile_fallback,100500.0,-17.28,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,주성엔지니어링,036930,전공정 장비,naver_mobile_fallback,200500.0,-16.63,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,유진테크,084370,전공정 장비,naver_mobile_fallback,121500.0,-18.51,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,테스,095610,전공정 장비,naver_mobile_fallback,119200.0,-19.13,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,피에스케이,319660,전공정 장비,naver_mobile_fallback,115900.0,-16.5,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,HPSP,403870,전공정 장비,naver_mobile_fallback,48650.0,-14.8,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,케이씨텍,281820,전공정 장비,naver_mobile_fallback,97300.0,-13.74,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,GST,083450,전공정 장비,naver_mobile_fallback,43850.0,-14.02,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,엘오티베큠,083310,전공정 장비,naver_mobile_fallback,9850.0,-12.75,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,에스티아이,039440,전공정 장비,naver_mobile_fallback,26500.0,-8.3,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,넥스틴,348210,테스트·검사·인터페이스,naver_mobile_fallback,29300.0,-14.2,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,한미반도체,042700,후공정·패키징,naver_mobile_fallback,189100.0,-13.06,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,피에스케이홀딩스,031980,후공정·패키징,naver_mobile_fallback,180200.0,-13.78,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,이오테크닉스,039030,후공정·패키징,naver_mobile_fallback,413500.0,-11.74,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,테크윙,089030,후공정·패키징,naver_mobile_fallback,40100.0,-19.48,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,엑시콘,092870,테스트·검사·인터페이스,naver_mobile_fallback,38450.0,-24.01,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,하나마이크론,067310,후공정·패키징,naver_mobile_fallback,37650.0,-15.77,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,두산테스나,131970,후공정·패키징,naver_mobile_fallback,116800.0,-7.45,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,SFA반도체,036540,후공정·패키징,naver_mobile_fallback,8780.0,-15.25,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,네패스,033640,후공정·패키징,naver_mobile_fallback,24350.0,-12.88,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,ISC,095340,테스트·검사·인터페이스,naver_mobile_fallback,143800.0,-17.45,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,리노공업,058470,테스트·검사·인터페이스,naver_mobile_fallback,66400.0,-12.63,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,티에스이,131290,테스트·검사·인터페이스,naver_mobile_fallback,266000.0,-16.48,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,기가비스,420770,테스트·검사·인터페이스,naver_mobile_fallback,107500.0,-16.8,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,인텍플러스,064290,테스트·검사·인터페이스,naver_mobile_fallback,45600.0,-22.32,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,오킨스전자,080580,테스트·검사·인터페이스,naver_mobile_fallback,23550.0,-15.14,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,마이크로컨텍솔,098120,테스트·검사·인터페이스,naver_mobile_fallback,44350.0,-12.87,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,티씨케이,064760,공정부품·소모품,naver_mobile_fallback,218000.0,-15.83,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,원익QnC,074600,공정부품·소모품,naver_mobile_fallback,26200.0,-14.52,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,하나머티리얼즈,166090,공정부품·소모품,naver_mobile_fallback,50600.0,-15.24,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,코미코,183300,공정부품·소모품,naver_mobile_fallback,24100.0,-16.03,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,월덱스,101160,공정부품·소모품,naver_mobile_fallback,25850.0,-9.3,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,한솔아이원스,114810,공정부품·소모품,naver_mobile_fallback,12160.0,-12.27,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,비씨엔씨,146320,공정부품·소모품,naver_mobile_fallback,9610.0,-10.1,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,솔브레인,357780,소재·케미컬,naver_mobile_fallback,329000.0,-12.96,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,동진쎄미켐,005290,소재·케미컬,naver_mobile_fallback,39800.0,-13.1,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,이엔에프테크놀로지,102710,소재·케미컬,naver_mobile_fallback,40700.0,-13.31,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,원익머트리얼즈,104830,소재·케미컬,naver_mobile_fallback,35450.0,-8.75,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,한솔케미칼,014680,소재·케미컬,naver_mobile_fallback,226500.0,-8.85,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,디엔에프,092070,소재·케미컬,naver_mobile_fallback,13340.0,-10.47,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,레이크머티리얼즈,281740,소재·케미컬,naver_mobile_fallback,11650.0,-10.38,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,심텍,222800,기판·PCB,naver_mobile_fallback,120200.0,-14.75,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,대덕전자,353200,기판·PCB,naver_mobile_fallback,127000.0,-12.41,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,이수페타시스,007660,기판·PCB,naver_mobile_fallback,93800.0,-15.65,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,티엘비,356860,기판·PCB,naver_mobile_fallback,37950.0,-18.12,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,코리아써키트,007810,기판·PCB,naver_mobile_fallback,63700.0,-15.96,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,해성디에스,195870,기판·PCB,naver_mobile_fallback,48200.0,-16.17,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,와이씨,232140,테스트·검사·인터페이스,naver_mobile_fallback,13680.0,-15.03,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,디아이,003160,테스트·검사·인터페이스,naver_mobile_fallback,35800.0,-13.32,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,에이팩트,200470,후공정·패키징,naver_mobile_fallback,9090.0,-9.28,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,네패스아크,330860,후공정·패키징,naver_mobile_fallback,24500.0,-15.08,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,LB세미콘,061970,후공정·패키징,naver_mobile_fallback,3400.0,-13.6,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,티에프이,425420,테스트·검사·인터페이스,naver_mobile_fallback,52400.0,-11.93,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,프로텍,053610,후공정·패키징,naver_mobile_fallback,62000.0,-16.78,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,유니셈,036200,전공정 장비,naver_mobile_fallback,8430.0,-11.91,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,에프에스티,036810,공정부품·소모품,naver_mobile_fallback,25200.0,-17.51,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,와이씨켐,112290,소재·케미컬,naver_mobile_fallback,9360.0,-13.17,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,샘씨엔에스,252990,테스트·검사·인터페이스,naver_mobile_fallback,14100.0,-15.06,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,제우스,079370,전공정 장비,naver_mobile_fallback,10160.0,-15.89,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,케이엔제이,272110,공정부품·소모품,naver_mobile_fallback,24950.0,-15.14,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,티이엠씨,425040,소재·케미컬,naver_mobile_fallback,14030.0,-6.65,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,덕산테코피아,317330,소재·케미컬,naver_mobile_fallback,10690.0,-13.09,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
+2026-10-15T14:56:19+09:00,manual,20261015,파크시스템스,140860,테스트·검사·인터페이스,naver_mobile_fallback,249500.0,-8.94,,,,Primary KIS snapshot missing/stale/incomplete; minimal public-web core fields only
