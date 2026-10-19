@@ -1,136 +1,15 @@
 {
-  "snapshot_kst": "2026-10-19T15:45:57+09:00",
+  "snapshot_kst": "2026-10-19T15:57:00+09:00",
   "mode": "manual",
   "market_date": "20261019",
   "universe_count": 63,
   "success_count": 63,
   "core_failure_count": 0,
-  "aux_failure_count": 20,
+  "aux_failure_count": 0,
   "core_failures": [],
-  "aux_failures": [
-    {
-      "name": "원익IPS",
-      "code": "240810",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '240810', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "주성엔지니어링",
-      "code": "036930",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '036930', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "유진테크",
-      "code": "084370",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '084370', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "테스",
-      "code": "095610",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '095610', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "피에스케이",
-      "code": "319660",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '319660', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "HPSP",
-      "code": "403870",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '403870', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "케이씨텍",
-      "code": "281820",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '281820', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "GST",
-      "code": "083450",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '083450', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "엘오티베큠",
-      "code": "083310",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '083310', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "에스티아이",
-      "code": "039440",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '039440', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "넥스틴",
-      "code": "348210",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '348210', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "한미반도체",
-      "code": "042700",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '042700', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "PSK홀딩스",
-      "code": "031980",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '031980', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "이오테크닉스",
-      "code": "039030",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '039030', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "테크윙",
-      "code": "089030",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '089030', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "엑시콘",
-      "code": "092870",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '092870', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "하나마이크론",
-      "code": "067310",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '067310', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "두산테스나",
-      "code": "131970",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '131970', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "SFA반도체",
-      "code": "036540",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '036540', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    },
-    {
-      "name": "네패스",
-      "code": "033640",
-      "field": "investor",
-      "error": "KIS request failed: /uapi/domestic-stock/v1/quotations/investor-trade-by-stock-daily {'FID_COND_MRKT_DIV_CODE': 'J', 'FID_INPUT_ISCD': '033640', 'FID_INPUT_DATE_1': '20261019', 'FID_ORG_ADJ_PRC': '', 'FID_ETC_CLS_CODE': ''} / KIS error OPSQ2001: TIME LIMIT 00:00 ~ 15:40"
-    }
-  ],
+  "aux_failures": [],
   "core_coverage_ok": true,
-  "full_field_coverage_ok": false,
-  "coverage_ok": false,
+  "full_field_coverage_ok": true,
+  "coverage_ok": true,
   "coverage_rule": "전체 스캔 완료 표현은 full_field_coverage_ok=true일 때만 사용"
 }
