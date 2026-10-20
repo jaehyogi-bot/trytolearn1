@@ -1,7 +1,7 @@
 {
-  "snapshot_kst": "2026-10-19T15:24:43+09:00",
+  "snapshot_kst": "2026-10-20T15:00:13+09:00",
   "mode": "manual",
-  "market_date": "20261019",
+  "market_date": "20261020",
   "source": "naver_mobile_fallback",
   "universe_count": 63,
   "success_count": 63,
