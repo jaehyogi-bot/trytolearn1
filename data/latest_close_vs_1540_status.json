@@ -1,8 +1,8 @@
 {
-  "snapshot_kst": "2026-10-20T21:48:04+09:00",
+  "snapshot_kst": "2026-10-21T22:01:25+09:00",
   "available": true,
   "reason": "ok",
-  "market_date": "20261020",
+  "market_date": "20261021",
   "row_count": 63,
   "note": "보조 비교 데이터이며 A/B 점수를 자동 결정하지 않음"
 }
