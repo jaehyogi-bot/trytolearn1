@@ -1,10 +1,10 @@
 {
-  "snapshot_kst": "2026-10-23T21:43:14+09:00",
+  "snapshot_kst": "2026-10-26T23:17:49+09:00",
   "mode": "close",
-  "market_date": "20261023",
+  "market_date": "20261026",
   "registered_universe_count": 63,
-  "market_rank_candidate_count": 28,
-  "pending_review_count": 27,
+  "market_rank_candidate_count": 30,
+  "pending_review_count": 29,
   "discovery_errors": [],
   "method": [
     "KRX volume increase rank",

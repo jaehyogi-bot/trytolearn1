@@ -1,7 +1,7 @@
 {
-  "snapshot_kst": "2026-10-23T21:41:36+09:00",
+  "snapshot_kst": "2026-10-26T23:16:12+09:00",
   "mode": "close",
-  "market_date": "20261023",
+  "market_date": "20261026",
   "universe_count": 63,
   "success_count": 63,
   "core_failure_count": 0,
@@ -15,5 +15,5 @@
   "price_basis": "KRX_regular_close_daily",
   "normalized_count": 63,
   "normalized_failure_count": 0,
-  "normalized_at_kst": "2026-10-23T21:41:36+09:00"
+  "normalized_at_kst": "2026-10-26T23:16:12+09:00"
 }
