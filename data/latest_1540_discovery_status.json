@@ -1,9 +1,9 @@
 {
-  "snapshot_kst": "2026-10-29T22:47:39+09:00",
+  "snapshot_kst": "2026-10-30T22:36:49+09:00",
   "mode": "1540",
-  "market_date": "20261029",
+  "market_date": "20261030",
   "registered_universe_count": 63,
-  "market_rank_candidate_count": 29,
+  "market_rank_candidate_count": 30,
   "pending_review_count": 28,
   "discovery_errors": [],
   "method": [
